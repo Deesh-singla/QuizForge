@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+const id = mongoose.Schema.ObjectId;
 
-const User = new mongoose.Schema({
+const admin = new mongoose.Schema({
     username: {
         type: String,
         required: true
@@ -18,16 +19,10 @@ const User = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ["admin", "teacher", "student"],
-        default: "student"
+        default: "admin"
     },
-    teacherRequest: {
-        type: String,
-        enum: ["none", "pending", "reject", "accepted"],
-        default: "none"
-    }
+    pendingRequest: [{ type: id, unique: true }]
 })
 
-const usersModel = mongoose.model("users", User);
-
-export { usersModel };
+const adminModel = mongoose.model("admin", admin);
+export { adminModel };
