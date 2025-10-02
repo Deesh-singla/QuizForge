@@ -5,7 +5,7 @@ import connectDb from "./config/db.js";
 import { authMiddleWare } from "./middleware/authMiddleware.js";
 import { studentRouter } from "./Router/studentRouter.js";
 import { adminRouter } from "./Router/adminRouter.js";
-import { isAdmin } from "./middleware/isAdminMiddleware.js";
+import { isAdmin } from "./middleware/roleMiddleware.js";
 
 const app = express();
 

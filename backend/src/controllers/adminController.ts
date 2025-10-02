@@ -41,7 +41,7 @@ const handleTeacherRequest = async (
             teacherReqUpdate = { status: "rejected" };
         }
 
-        const user = await usersModel.findByIdAndUpdate(id, userUpdate, { new: true });
+        const user = await usersModel.findByIdAndUpdate(id, userUpdate, { new: true,session });
 
         if (!user) {
             await session.abortTransaction();
@@ -52,7 +52,7 @@ const handleTeacherRequest = async (
         await teacherRequestModel.findOneAndUpdate(
             { userId: id },
             teacherReqUpdate,
-            { new: true }
+            { new: true,session }
         );
 
         await session.commitTransaction();

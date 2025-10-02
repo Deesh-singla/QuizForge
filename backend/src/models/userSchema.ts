@@ -23,7 +23,7 @@ const User = new mongoose.Schema({
     },
     teacherRequest: {
         type: String,
-        enum: ["none", "pending", "reject", "accepted"],
+        enum: ["none", "pending", "rejected", "accepted"],
         default: "none"
     }
 })
