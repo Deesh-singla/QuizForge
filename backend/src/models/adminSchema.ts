@@ -21,7 +21,6 @@ const admin = new mongoose.Schema({
         type: String,
         default: "admin"
     },
-    pendingRequest: [{ type: id, unique: true }]
 })
 
 const adminModel = mongoose.model("admin", admin);

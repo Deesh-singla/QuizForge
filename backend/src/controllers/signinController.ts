@@ -25,7 +25,7 @@ export const signinUser = async (req: Request, res: Response) => {
             res.status(403).json({ error: 'Username,email and password does not match' });
         }
         const token = jwt.sign({ id: foundUser._id, role: foundUser.role }, JWT_SECRET);
-        return res.status(200).json({ message: "user signed in successfu", token });
+        return res.status(200).json({ message: "user signed in successfu", token: `Bearer ${token}` });
     } catch (err) {
         return res.status(500).json({ error: "Internal Server Error" });
     }
